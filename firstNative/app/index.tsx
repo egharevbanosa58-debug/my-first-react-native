@@ -36,9 +36,8 @@ export default function Index() {
         title: newTask,
         isDone: false,
       };
-      if (newTodo === null) {
+      if (newTodo.title === "") {
         alert("Enter a valid title name");
-        setNewTask("");
         Keyboard.dismiss(); //To close keyboard after adding a task
       } else {
         task.push(newTodo);
@@ -49,13 +48,6 @@ export default function Index() {
         setNewTask("");
         Keyboard.dismiss(); //To close keyboard after adding a task
       }
-      task.push(newTodo);
-      setTask([...task]);
-      setOldTask([...task]);
-      await AsyncStorage.setItem("tasks", JSON.stringify(task));
-      alert(`Task "${newTask}" added Successfully`);
-      setNewTask("");
-      Keyboard.dismiss(); //To close keyboard after adding a task
     } catch (error) {
       console.error("Error adding task:", error);
     }
@@ -125,11 +117,11 @@ export default function Index() {
     >
       {/* The header  */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => alert("Orobosa Clicked the button!")}>
+        <TouchableOpacity onPress={() => alert("Coming Soon!")}>
           <Ionicons name="menu" size={24} color="black" />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => alert("Temitope Clicked the button!")} >
+        <TouchableOpacity onPress={() => alert("Coming Soon!")} >
           <Feather name="user" size={24} color="black" />
         </TouchableOpacity>
       </View>
@@ -166,7 +158,7 @@ const TodoItem = ({ todo, deleteTodo, handleDone }: { todo: todoType, deleteTodo
         <TouchableOpacity
           onPress={() => {
             deleteTodo(todo.id);
-            alert(`Task - "${todo.title}}" successfully deleted`)
+            alert(`Task - "${todo.title}" successfully deleted`)
           }}
           style={{ marginLeft: "auto" }}
         >
