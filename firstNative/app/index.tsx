@@ -117,9 +117,11 @@ export default function Index() {
     >
       {/* The header  */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => alert("Coming Soon!")}>
+        <TouchableOpacity onPress={() => alert("A NOSA production")}>
           <Ionicons name="menu" size={24} color="black" />
         </TouchableOpacity>
+
+        <Text>List Tracker</Text>
 
         <TouchableOpacity onPress={() => alert("Coming Soon!")} >
           <Feather name="user" size={24} color="black" />
@@ -129,7 +131,7 @@ export default function Index() {
       {/* The search bar */}
       <View style={styles.searchBar}>
         <Ionicons name="search" size={20} color="black" />
-        <TextInput value={searchQuery} onChangeText={(text) => setSearchQuery(text)} placeholder="Search..." style={styles.searchInput} clearButtonMode="always" />
+        <TextInput value={searchQuery} onChangeText={(text) => setSearchQuery(text)} placeholder="Search..." placeholderTextColor="#010101" style={styles.searchInput} clearButtonMode="always" />
       </View>
 
       {/* The task list  */}
@@ -139,7 +141,7 @@ export default function Index() {
       />
 
       <KeyboardAvoidingView style={styles.addTaskContainer} behavior="padding" keyboardVerticalOffset={10}>
-        <TextInput placeholder="Add Task..." value={newTask} onChangeText={(text) => setNewTask(text)} style={styles.addInput} autoCorrect={false} />
+        <TextInput placeholder="Add Task..." placeholderTextColor="#010101" value={newTask} onChangeText={(text) => setNewTask(text)} style={styles.addInput} autoCorrect={false} />
         <TouchableOpacity onPress={() => addTodo()} style={styles.addContainer}>
           <Ionicons name="add" size={24} color="white" />
         </TouchableOpacity>
@@ -201,7 +203,7 @@ const styles = StyleSheet.create({
     marginVertical: 10
   },
   searchInput: {
-    width: "90%",
+    flex: 1,
     marginHorizontal: 10,
     fontSize: 16,
     color: "black",
