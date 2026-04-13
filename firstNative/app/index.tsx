@@ -135,7 +135,7 @@ export default function Index() {
       </View>
 
       {/* The task list  */}
-      <FlatList data={[...task].reverse()} keyExtractor={(item) => item.id.toString()} renderItem={({ item }) =>
+      <FlatList data={[...task].reverse()} showsVerticalScrollIndicator={false} keyExtractor={(item) => item.id.toString()} renderItem={({ item }) =>
         <TodoItem todo={item} deleteTodo={deleteTodo} handleDone={handleDone} />}   // Optimized the reusable part of the code by creating a separate component for the task item
 
       />
